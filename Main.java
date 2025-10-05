@@ -3,7 +3,7 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Chaikin's Algorithm");
+            JFrame frame = new JFrame("Chaikin's Algorithm Visualizer");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
             ChaikinPanel chaikinPanel = new ChaikinPanel();
@@ -19,8 +19,8 @@ public class Main {
             frame.setResizable(false);
             frame.setVisible(true);
 
-            // We will make the panel runnable later
-            // new Thread(chaikinPanel).start();
+            // This line activates the animation loop
+            new Thread(chaikinPanel).start();
         });
     }
 }

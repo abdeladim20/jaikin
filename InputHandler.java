@@ -8,15 +8,20 @@ public class InputHandler extends MouseAdapter implements KeyListener {
     public InputHandler(ChaikinPanel panel) {
         this.panel = panel;
     }
-    
+
     @Override
     public void mousePressed(MouseEvent e) {
+        if (panel.isAnimating()) return;
+        
         panel.getControlPoints().add(new Point2D.Float(e.getX(), e.getY()));
-        panel.repaint();
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {}
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            panel.startAnimation();
+        }
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {}
