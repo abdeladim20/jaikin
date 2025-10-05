@@ -22,6 +22,9 @@ public class InputHandler extends MouseAdapter implements KeyListener {
             case KeyEvent.VK_ENTER:
                 panel.startAnimation();
                 break;
+            case KeyEvent.VK_SPACE:
+                panel.clearCanvas();
+                break;
             case KeyEvent.VK_ESCAPE:
                 System.exit(0);
                 break;

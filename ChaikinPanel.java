@@ -73,9 +73,12 @@ public class ChaikinPanel extends JPanel implements Runnable {
             float qy = p0.y + (p1.y - p0.y) * 0.25f;
             float rx = p0.x + (p1.x - p0.x) * 0.75f;
             float ry = p0.y + (p1.y - p0.y) * 0.75f;
-
-            newPoints.add(new Point2D.Float(qx, qy));
-            newPoints.add(new Point2D.Float(rx, ry));
+            if (i != 0) {
+                newPoints.add(new Point2D.Float(qx, qy));
+            }
+            if (i != points.size() - 2) {
+                newPoints.add(new Point2D.Float(rx, ry));
+            }
         }
         newPoints.add(points.get(points.size() - 1));
         return newPoints;
@@ -111,7 +114,14 @@ public class ChaikinPanel extends JPanel implements Runnable {
             displayPoints = new ArrayList<>(controlPoints);
         }
     }
-    
+
+    public void clearCanvas() {
+        isAnimating = false;
+        animationStep = 0;
+        controlPoints.clear();
+        displayPoints.clear();
+    }
+
     public List<Point2D.Float> getControlPoints() {
         return controlPoints;
     }

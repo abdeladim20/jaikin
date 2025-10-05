@@ -19,7 +19,7 @@ public class Main {
             frame.setResizable(false);
             frame.setVisible(true);
 
-            // This line activates the animation loop
+            // activate the animation loop
             new Thread(chaikinPanel).start();
         });
     }
